@@ -9,8 +9,9 @@ from iceScraper import IceScraper
 class NzskiReport(IceScraper):
     """Uses parent IceScraper class to extract Snow Report data from NZSki website. 
     Data can be accessed as attributes of class. Specific to NZSki website, and current as of May 2017."""
-    def __init__(self, address):
+    def __init__(self, address, mountain_name):
         super(NzskiReport, self).__init__(address)
+        self.mountain_name = mountain_name
 
         # Returns value of 'open' or 'closed'
         self.mountain_status = self.item_by_class("div", "status")
@@ -38,13 +39,35 @@ class NzskiReport(IceScraper):
         lift_states = self.list_by_class("statusType")
         self.lift_status = self.dict_from_lists(lift_names, lift_states)
 
+    #######################################################
+
+    @property
+    def json_object(self):
+        d = {self.mountain_name: {
+            'mountainStatus': self.mountain_status,
+            'snowConditions': self.snow_conditions,
+            'weatherConditions': self.weather_conditions,
+            'currentTemp': self.current_temp,
+            'roadConditions': self.road_conditions,
+            'minSnowBase': self.min_base,
+            'maxSnowBase': self.max_base,
+            'lastSnowfall': self.last_snow,
+            'lastSnowDate': self.last_snow_date,
+            'groomedRuns': self.groomed_runs,
+            'liftStatus': self.lift_status
+            }
+        }
+        return d
+
 
 ############################################################################################################
 
 def test():
-    test = NzskiReport("https://www.nzski.com/mt-hutt/mt-hutt-weather-report")
-    # test = SnowReport("https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report")
-    # test = SnowReport("https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report")
+    # test = NzskiReport("https://www.nzski.com/mt-hutt/mt-hutt-weather-report", 'mtHutt')
+    # test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report",
+    #                   'coronetPeak')
+    test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report",
+                      'theRemarkables')
 
     print test.mountain_status
     print "BREAK"

@@ -5,6 +5,7 @@ from flask import Flask, jsonify
 from weatherGodapp import app
 from lib.rainRadar import RainRadar
 from lib.webcam import NzskiWebcam, AirportWebcam, StaticWebcam
+from lib.snowReports import NzskiReport
 
 ############################################################################################################
 
@@ -12,6 +13,8 @@ from lib.webcam import NzskiWebcam, AirportWebcam, StaticWebcam
 @app.route('/')
 def index():
     return 'API online.'
+
+############################################################################################################
 
 
 @app.route('/weathergod/api/v1.0/local')
@@ -23,10 +26,20 @@ def local():
 def mountain():
      pass
 
+############################################################################################################
+
 
 @app.route('/weathergod/api/v1.0/snowreport')
 def snow_report():
-    pass
+    coronet = NzskiReport('https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report',
+                          'coronetPeak')
+    #remarks = NzskiReport('https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report',
+                          #'theRemarkables')
+
+    l = [coronet.json_object, 'remarks - FIX BUG']
+
+    return jsonify({'snowReport': l})
+
 
 ############################################################################################################
 
