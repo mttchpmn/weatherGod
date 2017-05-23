@@ -6,6 +6,7 @@ from iceScraper import IceScraper
 class NzskiWebcam(IceScraper):
     def __init__(self, address, mountain):
         super(NzskiWebcam, self).__init__(address)
+        self.mountain = mountain
 
         base_url = 'www.nzski.com'
 
@@ -17,6 +18,23 @@ class NzskiWebcam(IceScraper):
             self.base_learners = self.scrape_img_url('title', 'Base / Learners', base_url)
             self.lake_alta = self.scrape_img_url('title', 'Lake Alta', base_url)
             self.sugar_bowl = self.scrape_img_url('title', 'Sugar Bowl', base_url)
+
+    @property
+    def json_object(self):
+        """Returns data in dictionary."""
+        if self.mountain == 'Coronet Peak':
+            d = {
+                'coronetExpress': self.coronet_express,
+                'meadowBase': self.meadow_base,
+                'topStation': self.top_station
+            }
+        elif self.mountain == 'The Remarkables':
+            d = {
+                'baseLearners': self.base_learners,
+                'lakeAlta': self.lake_alta,
+                'sugarBowl': self.sugar_bowl
+            }
+        return d
 
 ############################################################################################################
 
@@ -42,6 +60,18 @@ class AirportWebcam(IceScraper):
                 url = 'http://www.queenstownairport.co.nz{}'.format(src)
                 return url
 
+    #######################################################
+
+    @property
+    def json_object(self):
+        d = {
+            'tower': self.tower,
+            'coronet': self.coronet,
+            'stands': self.stands,
+            'lake': self.lake,
+            'remarks': self.remarks
+        }
+        return d
 
 ############################################################################################################
 
@@ -61,6 +91,21 @@ class StaticWebcam(object):
 
         self.traffic_kbridge = 'http://www.trafficnz.info/camera/623.jpg'
         self.traffic_frankton = 'http://www.trafficnz.info/camera/627.jpg'
+
+    @property
+    def json_object(self):
+        d = {
+            'glenorchy': self.glenorchy,
+            'cecilNorth': self.cecil_peak_north,
+            'cecilWest': self.cecil_peak_west,
+            'earnslaw': self.earnslaw,
+            'steamerWharf': self.steamer_wharf,
+            'qnTrafficSouth': self.traffic_qn_south,
+            'qnTrafficNorth': self.traffic_qn_north,
+            'fnTrafficBridge': self.traffic_kbridge,
+            'fnTrafficBp': self.traffic_frankton
+        }
+        return d
 
 ############################################################################################################
 

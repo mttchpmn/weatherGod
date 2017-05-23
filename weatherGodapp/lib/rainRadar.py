@@ -1,3 +1,5 @@
+# TODO - Change Property to a for loop that adds attribute to a dict with 'name' and 'url' values
+
 from iceScraper import IceScraper
 
 ############################################################################################################
