@@ -1,5 +1,10 @@
-from weatherGod import app
-from rainRadar import RainRadar
+from flask import Flask, jsonify
+
+from weatherGodapp import app
+from lib.rainRadar import RainRadar
+
+############################################################################################################
+
 
 @app.route('/')
 def index():
@@ -24,17 +29,8 @@ def snow_report():
 @app.route('/weathergod/api/v1.0/radar')
 def radar():
     metvuw = RainRadar('http://metvuw.com/forecast/forecast.php?type=rain&region=nzsi&noofdays=3')
-    radar_dict = {
-            'sixAhead': metvuw.img06,
-            'twelveAhead': metvuw.img12,
-            'eighteenAhead': metvuw.img18,
-            'twentyFourAhead': metvuw.img24,
-            'thirtyAhead': metvuw.img30,
-            'thirtySixAhead': metvuw.img36,
-            'fortyTwoAhead': metvuw.img42,
-            'fortyEightAhead': metvuw.img48,
-                }
-        return jsonify({'rainRadar': radar_dict})
+
+    return jsonify({'rainRadar': metvuw.json_object})
 
 
 @app.route('/weathergod/api/v1.0/webcams')

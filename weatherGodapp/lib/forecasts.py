@@ -1,7 +1,7 @@
 # TODO - Move Mountain to separate module
 # TODO - Change class attributes to absolute values rather than strings
 
-# Import required modules
+# Import required lib
 import requests
 
 ############################################################################################################
