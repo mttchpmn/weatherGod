@@ -14,8 +14,13 @@ class IceScraper(object):
 
     def item_by_class(self, element, class_name):
         result = self.soup.find(element, {"class": class_name})
-        result = result.string
-        result = result.strip()
+        check_result = result.string
+        if check_result is not None:
+            result = result.string
+            result = result.strip()
+        else:
+            result = result.text
+            result = ' '.join(result.split())
         return result
 
     def list_by_class(self, class_name):
