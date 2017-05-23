@@ -31,7 +31,7 @@ def snow_report():
 ############################################################################################################
 
 
-@app.route('/weathergod/api/v1.0/radar')
+@app.route('/weathergod/api/v1.0/rainradar')
 def radar():
     metvuw = RainRadar('http://metvuw.com/forecast/forecast.php?type=rain&region=nzsi&noofdays=3')
     return jsonify({'rainRadar': metvuw.json_object})
@@ -39,7 +39,7 @@ def radar():
 ############################################################################################################
 
 
-@app.route('/weathergod/api/v1.0/webcams')
+@app.route('/weathergod/api/v1.0/webcam')
 def webcams():
     coronet = NzskiWebcam('https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report',
                           'Coronet Peak')
@@ -63,6 +63,11 @@ def webcams():
 ############################################################################################################
 
 
-@app.route('/weathergod/api/v1.0/river')  # Is this necessary? Static URLs
+@app.route('/weathergod/api/v1.0/riverflow')
 def river():
-    pass
+    d = {
+        'dart': 'http://water.orc.govt.nz/Drop/Graphs/HillocksFlow7.gif',
+        'shotover': 'http://water.orc.govt.nz/Drop/Graphs/PeatsFlow7.gif',
+        'kawarau': 'http://water.orc.govt.nz/Drop/Graphs/Chards7.gif'
+    }
+    return jsonify({'riverFlow': d})
