@@ -2,6 +2,7 @@ from iceScraper import IceScraper
 
 ############################################################################################################
 
+
 class RainRadar(IceScraper):
     """Uses IceScraper module to scrape the urls for MetVuw Charts.
     Chart URLs are stored in class variables."""
@@ -27,14 +28,31 @@ class RainRadar(IceScraper):
             url = i.get('src')
             if url[len(url)-6:len(url)-4] == timecode:
                 result = 'http://www.metvuw.com/forecast%s' % (url[1::])
-        return result
+                return result
+
+    #######################################################
+
+    @property
+    def json_object(self):
+        """Returns information in a dictionary, which can easily be serialised using 'jsonify()'."""
+        d = {
+            '06Ahead': self.img06,
+            '12Ahead': self.img12,
+            '18Ahead': self.img18,
+            '24Ahead': self.img24,
+            '30Ahead': self.img30,
+            '36Ahead': self.img36,
+            '42Ahead': self.img42,
+            '48Ahead': self.img48,
+                }
+        return d
 
 ############################################################################################################
 
 
 def test():
-    test = RainRadar('http://metvuw.com/forecast/forecast.php?type=rain&region=nzsi&noofdays=3')
-    print test.scrape_url('12')
+    t = RainRadar('http://metvuw.com/forecast/forecast.php?type=rain&region=nzsi&noofdays=3')
+    print t.scrape_url('12')
 
 if __name__ == '__main__':
     test()
