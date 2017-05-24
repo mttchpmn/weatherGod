@@ -2,7 +2,7 @@
 
 from flask import Flask, jsonify
 
-from weatherGodapp import app
+from app import app
 from lib.rainRadar import RainRadar
 from lib.webcam import NzskiWebcam, AirportWebcam, StaticWebcam
 from lib.snowReports import NzskiReport
