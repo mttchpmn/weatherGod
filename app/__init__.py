@@ -2,5 +2,5 @@ from flask import Flask
 
 app = Flask(__name__)
 
-import app.views
-import app.lib
+import weatherGodapp.views
+import weatherGodapp.lib
