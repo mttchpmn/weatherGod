@@ -32,11 +32,11 @@ def mountain():
 @app.route('/weathergod/api/v1.0/snowreport')
 def snow_report():
     coronet = NzskiReport('https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report',
-                          'coronetPeak')
-    #remarks = NzskiReport('https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report',
-                          #'theRemarkables')
+                          'Coronet Peak')
+    remarks = NzskiReport('https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report',
+                          'The Remarkables')
 
-    l = [coronet.json_object, 'remarks - FIX BUG']
+    l = [coronet.json_object, remarks.json_object]
 
     return jsonify({'snowReport': l})
 

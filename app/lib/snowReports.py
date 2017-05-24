@@ -43,7 +43,8 @@ class NzskiReport(IceScraper):
 
     @property
     def json_object(self):
-        d = {self.mountain_name: {
+        d = {
+            'mountainName': self.mountain_name,
             'mountainStatus': self.mountain_status,
             'snowConditions': self.snow_conditions,
             'weatherConditions': self.weather_conditions,
@@ -56,7 +57,6 @@ class NzskiReport(IceScraper):
             'groomedRuns': self.groomed_runs,
             'liftStatus': self.lift_status
             }
-        }
         return d
 
 
