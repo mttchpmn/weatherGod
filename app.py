@@ -1,11 +1,13 @@
+
 # TODO - Make JSON objects more verbose?
 
 from flask import Flask, jsonify
 
-from app import app
 from lib.rainRadar import RainRadar
-from lib.webcam import NzskiWebcam, AirportWebcam, StaticWebcam
 from lib.snowReports import NzskiReport
+from lib.webcam import NzskiWebcam, AirportWebcam, StaticWebcam
+
+app = Flask(__name__)
 
 ############################################################################################################
 
@@ -24,7 +26,7 @@ def local():
 
 @app.route('/weathergod/api/v1.0/mountain')
 def mountain():
-     pass
+    pass
 
 ############################################################################################################
 
@@ -84,3 +86,6 @@ def river():
         'kawarau': 'http://water.orc.govt.nz/Drop/Graphs/Chards7.gif'
     }
     return jsonify({'riverFlow': d})
+
+if __name__ == '__main__':
+    app.run()
