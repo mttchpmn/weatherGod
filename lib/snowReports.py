@@ -44,18 +44,24 @@ class NzskiReport(IceScraper):
     @property
     def json_object(self):
         d = {
-            'mountainName': self.mountain_name,
-            'mountainStatus': self.mountain_status,
-            'snowConditions': self.snow_conditions,
-            'weatherConditions': self.weather_conditions,
-            'currentTemp': self.current_temp,
-            'roadConditions': self.road_conditions,
-            'minSnowBase': self.min_base,
-            'maxSnowBase': self.max_base,
-            'lastSnowfall': self.last_snow,
-            'lastSnowDate': self.last_snow_date,
-            'groomedRuns': self.groomed_runs,
-            'liftStatus': self.lift_status
+            'status': {
+                'mountainName': self.mountain_name,
+                'mountainStatus': self.mountain_status,
+                'liftStatus': self.lift_status,
+                'groomedRuns': self.groomed_runs
+                },
+            'detail': {
+                'snowConditions': self.snow_conditions,
+                'weatherConditions': self.weather_conditions,
+                'roadConditions': self.road_conditions
+                },
+            'stats':{
+                'currentTemp': self.current_temp,
+                'minSnowBase': self.min_base,
+                'maxSnowBase': self.max_base,
+                'lastSnowfall': self.last_snow,
+                'lastSnowDate': self.last_snow_date
+                }
             }
         return d
 
