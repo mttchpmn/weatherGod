@@ -188,7 +188,7 @@ class Sounding(object):
 ############################################################################################################
 # TESTING
 
-# test = Sounding('93844', 0)
-# print test.valid_from
+test = Sounding('93844', 0)
+print test.valid_from
 
-# pprint(test.data)
+pprint(test.data)
