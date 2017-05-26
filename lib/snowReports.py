@@ -1,6 +1,3 @@
-from bs4 import BeautifulSoup
-import requests
-
 from iceScraper import IceScraper
 
 ############################################################################################################
@@ -44,12 +41,8 @@ class NzskiReport(IceScraper):
     @property
     def json_object(self):
         d = {
-            'status': {
-                'mountainName': self.mountain_name,
-                'mountainStatus': self.mountain_status,
-                'liftStatus': self.lift_status,
-                'groomedRuns': self.groomed_runs
-                },
+            'mountainName': self.mountain_name,
+            'mountainStatus': self.mountain_status,
             'detail': {
                 'snowConditions': self.snow_conditions,
                 'weatherConditions': self.weather_conditions,
@@ -60,7 +53,9 @@ class NzskiReport(IceScraper):
                 'minSnowBase': self.min_base,
                 'maxSnowBase': self.max_base,
                 'lastSnowfall': self.last_snow,
-                'lastSnowDate': self.last_snow_date
+                'lastSnowDate': self.last_snow_date,
+                'groomedRuns': self.groomed_runs,
+                'liftStatus': self.lift_status,
                 }
             }
         return d
