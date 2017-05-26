@@ -19,19 +19,19 @@ def index():
 ############################################################################################################
 
 
-@app.route('/weathergod/api/v1.0/local')
+@app.route('/api/v1.0/local')
 def local():
     pass
 
 
-@app.route('/weathergod/api/v1.0/mountain')
+@app.route('/api/v1.0/mountain')
 def mountain():
     pass
 
 ############################################################################################################
 
 
-@app.route('/weathergod/api/v1.0/snowreport')
+@app.route('/api/v1.0/snowreport')
 def snow_report():
     coronet = NzskiReport('https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report',
                           'Coronet Peak')
@@ -46,7 +46,7 @@ def snow_report():
 ############################################################################################################
 
 
-@app.route('/weathergod/api/v1.0/rainradar')
+@app.route('/api/v1.0/rainradar')
 def radar():
     metvuw = RainRadar('http://metvuw.com/forecast/forecast.php?type=rain&region=nzsi&noofdays=3')
     return jsonify({'rainRadar': metvuw.json_object})
@@ -54,7 +54,7 @@ def radar():
 ############################################################################################################
 
 
-@app.route('/weathergod/api/v1.0/webcam')
+@app.route('/api/v1.0/webcam')
 def webcams():
     coronet = NzskiWebcam('https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report',
                           'Coronet Peak')
@@ -78,7 +78,7 @@ def webcams():
 ############################################################################################################
 
 
-@app.route('/weathergod/api/v1.0/riverflow')
+@app.route('/api/v1.0/riverflow')
 def river():
     d = {
         'dart': 'http://water.orc.govt.nz/Drop/Graphs/HillocksFlow7.gif',
