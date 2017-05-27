@@ -12,6 +12,7 @@ class NzskiReport(IceScraper):
 
         # Returns value of 'open' or 'closed'
         self.mountain_status = self.item_by_class("div", "status")
+        self.report_time = self.item_by_class("div", "reportDate")[6::]
 
         # Information Blurbs
         # Return strings of current conditions for snow, weather, and roads
@@ -42,6 +43,7 @@ class NzskiReport(IceScraper):
     def json_object(self):
         d = {
             'mountainName': self.mountain_name,
+            'reportTime': self.report_time,
             'mountainStatus': self.mountain_status,
             'detail': {
                 'snowConditions': self.snow_conditions,
@@ -65,12 +67,14 @@ class NzskiReport(IceScraper):
 
 def test():
     # test = NzskiReport("https://www.nzski.com/mt-hutt/mt-hutt-weather-report", 'mtHutt')
-    # test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report",
-    #                   'coronetPeak')
-    test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report",
-                      'theRemarkables')
+    test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report",
+                      'coronetPeak')
+    # test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report",
+    #                   'theRemarkables')
 
     print test.mountain_status
+    print "BREAK"
+    print test.report_time
     print "BREAK"
     print test.snow_conditions
     print "BREAK"

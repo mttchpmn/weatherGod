@@ -1,7 +1,7 @@
 
 # TODO - Make JSON objects more verbose?
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 from lib.rainRadar import RainRadar
 from lib.snowReports import NzskiReport
@@ -15,6 +15,10 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return 'API online.'
+
+@app.route('/api/v1.0/docs')
+def docs():
+    return render_template('docs.html')
 
 ############################################################################################################
 
