@@ -16,6 +16,7 @@ app = Flask(__name__)
 def index():
     return 'API online.'
 
+
 @app.route('/api/v1.0/docs')
 def docs():
     return render_template('docs.html')
