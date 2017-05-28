@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>WeatherGod API</title>
+
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"  rel="stylesheet"></script>
+	<link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="/static/js/crud.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>WeatherGod API Docs</h1>
+        </div>
+        <div>
+            <h2>API Endpoints</h2>
+            <ul>
+                <li>local</li>
+                <li>mountain</li>
+                <li>snowreport</li>
+                <li>rainradar</li>
+                <li>webcam</li>
+                <li>riverflow</li>
+            </ul>
+            <hr>
+        </div>
+        <div>
+            <h3>Local</h3>
+            <h5><em>weathergod.herokuapp.com/api/v1.0/local</em></h5>
+            <p>Not currently functional.  Stay tuned.</p>
+            <hr>
+
+            <h3>Mountain</h3>
+            <h5><em>weathergod.herokuapp.com/api/v1.0/mountain</em></h5>
+            <p>Not currently functional.  Stay tuned.</p>
+            <hr>
+
+            <h3>Snow Reports</h3>
+            <h5><em>weathergod.herokuapp.com/api/v1.0/snowreport</em></h5>
+            <p>
+                Returns JSON object of key value pairs for Skifield Snow Report Information.  Information is scraped directly from the NZski website.
+            </p>
+            <hr>
+
+
+            <h3>Rain Radar</h3>
+            <h5><em>weathergod.herokuapp.com/api/v1.0/rainradar</em></h5>
+            <p>Returns a JSON object containing the URLs for the synoptic charts for the next 48 hours.  Charts are sourced from MetVuw.com</p>
+            <hr>
+
+            <h3>Webcam</h3>
+            <h5><em>weathergod.herokuapp.com/api/v1.0/webcam</em></h5>
+            <p>Returns a JSON object containing the URLs to the most recent webcam images from around Queenstown. Images are sourced from Coronet Peak,
+            The Remarkables, Queenstown Airport, and assorted other locations / providers.</p>
+            <hr>
+
+            <h3>River Flow</h3>
+            <h5><em>weathergod.herokuapp.com/api/v1.0/riverflow</em></h5>
+            <p>Returns a JSON object containing URLs for river flow gifs. Sourced from the Otago Regional Council Website.</p>
+            <hr>
+        </div>
+    </div>
+</body>
+
+<footer class="footer">
+	<p class="text-center">&copy; Matt Chapman</p>
+</footer>

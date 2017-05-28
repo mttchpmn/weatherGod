@@ -1,6 +1,3 @@
-from bs4 import BeautifulSoup
-import requests
-
 from iceScraper import IceScraper
 
 ############################################################################################################
@@ -15,6 +12,7 @@ class NzskiReport(IceScraper):
 
         # Returns value of 'open' or 'closed'
         self.mountain_status = self.item_by_class("div", "status")
+        self.report_time = self.item_by_class("div", "reportDate")[6::]
 
         # Information Blurbs
         # Return strings of current conditions for snow, weather, and roads
@@ -45,17 +43,22 @@ class NzskiReport(IceScraper):
     def json_object(self):
         d = {
             'mountainName': self.mountain_name,
+            'reportTime': self.report_time,
             'mountainStatus': self.mountain_status,
-            'snowConditions': self.snow_conditions,
-            'weatherConditions': self.weather_conditions,
-            'currentTemp': self.current_temp,
-            'roadConditions': self.road_conditions,
-            'minSnowBase': self.min_base,
-            'maxSnowBase': self.max_base,
-            'lastSnowfall': self.last_snow,
-            'lastSnowDate': self.last_snow_date,
-            'groomedRuns': self.groomed_runs,
-            'liftStatus': self.lift_status
+            'detail': {
+                'snowConditions': self.snow_conditions,
+                'weatherConditions': self.weather_conditions,
+                'roadConditions': self.road_conditions
+                },
+            'stats':{
+                'currentTemp': self.current_temp,
+                'minSnowBase': self.min_base,
+                'maxSnowBase': self.max_base,
+                'lastSnowfall': self.last_snow,
+                'lastSnowDate': self.last_snow_date,
+                'groomedRuns': self.groomed_runs,
+                'liftStatus': self.lift_status,
+                }
             }
         return d
 
@@ -64,12 +67,14 @@ class NzskiReport(IceScraper):
 
 def test():
     # test = NzskiReport("https://www.nzski.com/mt-hutt/mt-hutt-weather-report", 'mtHutt')
-    # test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report",
-    #                   'coronetPeak')
-    test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report",
-                      'theRemarkables')
+    test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/coronet-peak/coronet-peak-weather-report",
+                      'coronetPeak')
+    # test = NzskiReport("https://www.nzski.com/queenstown/the-mountains/the-remarkables/the-remarkables-weather-report",
+    #                   'theRemarkables')
 
     print test.mountain_status
+    print "BREAK"
+    print test.report_time
     print "BREAK"
     print test.snow_conditions
     print "BREAK"
