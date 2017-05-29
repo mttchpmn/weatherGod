@@ -6,6 +6,8 @@
 
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"  rel="stylesheet"></script>
 	<link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href="/static/style.css" rel="stylesheet">
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="/static/js/crud.js"></script>
@@ -14,55 +16,180 @@
 
 <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1>WeatherGod API Docs</h1>
+        <div class="jumbotron jumbotron-hollow">
+            <h1>WeatherGod API</h1>
         </div>
-        <div>
-            <h2>API Endpoints</h2>
-            <ul>
-                <li>local</li>
-                <li>mountain</li>
-                <li>snowreport</li>
-                <li>rainradar</li>
-                <li>webcam</li>
-                <li>riverflow</li>
-            </ul>
-            <hr>
-        </div>
-        <div>
-            <h3>Local</h3>
-            <h5><em>weathergod.herokuapp.com/api/v1.0/local</em></h5>
-            <p>Not currently functional.  Stay tuned.</p>
-            <hr>
+            <div>
+                <p class="blurb">Created by Matt Chapman</p>
+                <p class="blurb">github.com/mttchpmn</p>
+                <p class="blurb">matt@mttchpmn.com</p>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading color-fill">
+                    <h2>API Endpoints</h2>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <h3>Local</h3>
+                        <h5><em>weathergod.herokuapp.com/api/v1.0/local</em></h5>
+                        <p>Not currently functional.  Stay tuned.</p>
+                        <p><em>Example Response:</em></p>
+                        <hr>
 
-            <h3>Mountain</h3>
-            <h5><em>weathergod.herokuapp.com/api/v1.0/mountain</em></h5>
-            <p>Not currently functional.  Stay tuned.</p>
-            <hr>
+                        <h3>Mountain</h3>
+                        <h5><em>weathergod.herokuapp.com/api/v1.0/mountain</em></h5>
+                        <p>Not currently functional.  Stay tuned.</p>
+                        <p><em>Example Response:</em></p>
+                        <hr>
 
-            <h3>Snow Reports</h3>
-            <h5><em>weathergod.herokuapp.com/api/v1.0/snowreport</em></h5>
-            <p>
-                Returns JSON object of key value pairs for Skifield Snow Report Information.  Information is scraped directly from the NZski website.
-            </p>
-            <hr>
+                        <h3>Snow Reports</h3>
+                        <h5><em>weathergod.herokuapp.com/api/v1.0/snowreport</em></h5>
+                        <p>
+                            Returns JSON object of key value pairs for Skifield Snow Report Information.  Information is scraped directly from the NZski website.
+                        </p>
+                        <p><em>Example Response:</em></p>
+                        <pre>
+{
+  "snowReport": [
+    {
+      "detail": {
+        "roadConditions": "Our road is open. Please drive courteously and observe the posted speed limits at all times while enjoying the magnificent view of Queenstown.\nWinter driving conditions now exist with icy patches and possible snow.", 
+        "snowConditions": "We are busy getting ready for the 2017 winter season. Our opening date is scheduled for Saturday 17th June. We look forward to seeing you up here soon!", 
+        "weatherConditions": "Autumn weather conditions happening up here at Coronet Peak with some precipitation due this weekend."
+      }, 
+      "mountainName": "Coronet Peak", 
+      "mountainStatus": "Opening on Sat, Jun 17, 2017", 
+      "reportTime": "16:14, 26 May", 
+      "stats": {
+        "currentTemp": "5.1\u00b0", 
+        "groomedRuns": "0 of 0", 
+        "lastSnowDate": "20 May 2017", 
+        "lastSnowfall": "5", 
+        "liftStatus": {
+          "Coronet Express": "Closed", 
+          "Greengates Express": "Closed", 
+          "Kaser Ski Conveyor Lift": "Closed", 
+          "Learners Carpet Conveyor Lift": "Closed", 
+          "Magic Carpet Conveyor Lift": "Closed", 
+          "Meadows Express": "Closed", 
+          "Rocky Gully T-Bar": "Closed", 
+          "Sunkid Carpet Conveyor Lift": "Closed"
+        }, 
+        "maxSnowBase": "15cm", 
+        "minSnowBase": "0cm"
+      }
+    }, 
+    {
+      "detail": {
+        "roadConditions": "The road is clear and open up to car park level. \nPlease drive with caution, maintain two way access at all times and all parking is in Car park 1 just below the base lodge.", 
+        "snowConditions": "Only 12 days before we open for some great times and already mother nature is providing us with a good start to the base. Our snow making team are preparing to hit the button to assist mother nature when temps get cold enough.", 
+        "weatherConditions": "A north westerly air flow is over us presently bringing cloudy skies. Mainly fine weather continues into tomorrow."
+      }, 
+      "mountainName": "The Remarkables", 
+      "mountainStatus": "Opening on Sat, Jun 10, 2017", 
+      "reportTime": "06:47, 29 May", 
+      "stats": {
+        "currentTemp": "1.9\u00b0", 
+        "groomedRuns": "0 of 0", 
+        "lastSnowDate": "20 May 2017", 
+        "lastSnowfall": "50", 
+        "liftStatus": {
+          "Alta Chair": "Closed", 
+          "Curvey Basin Express": "Closed", 
+          "Learners Conveyors": "Closed", 
+          "Shadow Basin Chair": "Closed", 
+          "Shorty Converyor": "Closed", 
+          "Sugar Bowl Chair": "Closed"
+        }, 
+        "maxSnowBase": "30cm", 
+        "minSnowBase": "15cm"
+      }
+    }
+  ]
+}
+                        </pre>
+                        <hr>
 
 
-            <h3>Rain Radar</h3>
-            <h5><em>weathergod.herokuapp.com/api/v1.0/rainradar</em></h5>
-            <p>Returns a JSON object containing the URLs for the synoptic charts for the next 48 hours.  Charts are sourced from MetVuw.com</p>
-            <hr>
+                        <h3>Rain Radar</h3>
+                        <h5><em>weathergod.herokuapp.com/api/v1.0/rainradar</em></h5>
+                        <p>Returns a JSON object containing the URLs for the synoptic charts for the next 48 hours.  Charts are sourced from MetVuw.com</p>
+                        <p><em>Example Response:</em></p>
+                        <pre>
+{
+  "rainRadar": {
+    "06Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-006.gif", 
+    "12Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-012.gif", 
+    "18Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-018.gif", 
+    "24Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-024.gif", 
+    "30Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-030.gif", 
+    "36Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-036.gif", 
+    "42Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-042.gif", 
+    "48Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-048.gif"
+  }
+}
+                        </pre>
+                        <hr>
 
-            <h3>Webcam</h3>
-            <h5><em>weathergod.herokuapp.com/api/v1.0/webcam</em></h5>
-            <p>Returns a JSON object containing the URLs to the most recent webcam images from around Queenstown. Images are sourced from Coronet Peak,
-            The Remarkables, Queenstown Airport, and assorted other locations / providers.</p>
-            <hr>
+                        <h3>Webcam</h3>
+                        <h5><em>weathergod.herokuapp.com/api/v1.0/webcam</em></h5>
+                        <p>Returns a JSON object containing the URLs to the most recent webcam images from around Queenstown. Images are sourced from Coronet Peak,
+                        The Remarkables, Queenstown Airport, and assorted other locations / providers.</p>
+                        <p><em>Example Response:</em></p>
+                        <pre>
+                            {
+               "webcams":{
+                  "airport":{
+                     "coronet":"http://www.queenstownairport.co.nz/assets/Webcams/coronet/image17-05-29_10-08-54-83.jpg",
+                     "lake":"http://www.queenstownairport.co.nz/assets/Webcams/lake/image17-05-29_10-10-24-83.jpg",
+                     "remarks":"http://www.queenstownairport.co.nz/assets/Webcams/remarks/image17-05-29_10-14-50-05.jpg",
+                     "stands":"http://www.queenstownairport.co.nz/assets/Webcams/stands/image17-05-29_10-13-21-83.jpg",
+                     "tower":"http://www.queenstownairport.co.nz/assets/Webcams/tower/image17-05-29_10-11-52-83.jpg"
+                  },
+                  "coronetPeak":{
+                     "coronetExpress":"https://www.nzski.com/webcams/CoronetPeak/CoronetExpress/201705291010.jpg",
+                     "meadowBase":"https://www.nzski.com/webcams/CoronetPeak/MeadowsBase/201705291009.jpg",
+                     "topStation":"https://www.nzski.com/webcams/CoronetPeak/SugarsRun/201705291005.jpg"
+                  },
+                  "static":{
+                     "cecilNorth":"http://www.jablotool.com/webcamera/H1H1ISJWPU/1",
+                     "cecilWest":"http://www.jablotool.com/webcamera/QXG2A2FXGT/1/",
+                     "earnslaw":"http://snapithd.com/static/earnslaw.jpg",
+                     "fnTrafficBp":"http://www.trafficnz.info/camera/627.jpg",
+                     "fnTrafficBridge":"http://www.trafficnz.info/camera/623.jpg",
+                     "glenorchy":"http://www.snowgrass.co.nz/cust/glenorchy_air/images/webcam.jpg",
+                     "qnTrafficNorth":"http://www.trafficnz.info/camera/622.jpg",
+                     "qnTrafficSouth":"http://www.trafficnz.info/camera/621.jpg",
+                     "steamerWharf":"http://www.southerndiscoveries.co.nz/webcam-images/QTN1/webcam3.jpg?1495416172"
+                  },
+                  "theRemarkables":{
+                     "baseLearners":"https://www.nzski.com/webcams/TheRemarkables/Baselearners/201705291002.jpg",
+                     "lakeAlta":"https://www.nzski.com/webcams/TheRemarkables/IcebarJunction/201705291002.jpg",
+                     "sugarBowl":"https://www.nzski.com/webcams/TheRemarkables/Sugarbowl/201705291002.jpg"
+                  }
+               }
+            }
+                        </pre>
+                        <hr>
 
-            <h3>River Flow</h3>
-            <h5><em>weathergod.herokuapp.com/api/v1.0/riverflow</em></h5>
-            <p>Returns a JSON object containing URLs for river flow gifs. Sourced from the Otago Regional Council Website.</p>
-            <hr>
+                        <h3>River Flow</h3>
+                        <h5><em>weathergod.herokuapp.com/api/v1.0/riverflow</em></h5>
+                        <p>Returns a JSON object containing URLs for river flow gifs. Sourced from the Otago Regional Council Website.</p>
+                        <p><em>Example Response:</em></p>
+                        <pre>
+{
+  "riverFlow": {
+    "dart": "http://water.orc.govt.nz/Drop/Graphs/HillocksFlow7.gif", 
+    "kawarau": "http://water.orc.govt.nz/Drop/Graphs/Chards7.gif", 
+    "shotover": "http://water.orc.govt.nz/Drop/Graphs/PeatsFlow7.gif"
+  }
+}
+
+                        </pre>
+                        <hr>
+                        
+                    </div>
+                </div>
         </div>
     </div>
 </body>

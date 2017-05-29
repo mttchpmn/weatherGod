@@ -1,3 +1,41 @@
 body{
     background-image: url("topography.png");
 }
+h2{
+    font-family: 'Roboto Slab';
+    font-size: 40px;
+}
+h3{
+    font-family: 'Roboto Slab';
+    color: #42A5F5;
+    font-size: 30px;
+}
+p{
+    font-family: 'Roboto';
+    font-size: 14px;
+}
+.jumbotron-custom{
+    font-family: 'Roboto Slab';
+    font-size: 50px !important;
+}
+.jumbotron-hollow{
+    background-color: transparent !important;
+    border: 10px !important;
+    border-style: solid !important;
+    color: #42A5F5;
+    border-color: #42A5F5 !important;
+    font-family: 'Roboto Slab';
+    text-align: center;
+}
+.color-fill{
+    background-color: #42A5F5 !important;
+    color: white !important;
+    font-family: 'Roboto Slab';
+    text-align: center;
+}
+.blurb{
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-style: italic;
+}
