@@ -6,6 +6,7 @@ from flask import Flask, jsonify, render_template, redirect
 from lib.rainRadar import RainRadar
 from lib.snowReports import NzskiReport
 from lib.webcam import NzskiWebcam, AirportWebcam, StaticWebcam
+from lib.local import Aerodrome
 
 app = Flask(__name__)
 
@@ -26,7 +27,8 @@ def docs():
 
 @app.route('/api/v1.0/local')
 def local():
-    pass
+    ad = Aerodrome('http://www.metservice.com/publicData/localObsPage', '93831')
+    return jsonify({'aerodrome': ad.json_object})
 
 
 @app.route('/api/v1.0/mountain')

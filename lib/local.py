@@ -24,29 +24,50 @@ class Weather(object):
 
 
 # Create instance of local weather forecast, retrieve and save data to variables
-class Local(Weather):
+class Aerodrome(Weather):
     #  Access via 'http://www.metservice.com/publicData/localObsPage'
-    def __init__(self, api_address, description):
-        super(Local, self).__init__(api_address)
-        self.description = description
+    def __init__(self, api_address, locationCode):
+        super(Aerodrome, self).__init__(api_address)
+        self.locationCode = locationCode
         forecast = self.get_info()
 
         default = 'Data not found.'
-        self.location = forecast['locationDesc']
-        self.time = 'Effective: %s' % forecast.get('dateTime', default)
-        self.temp = 'Temperature: %s degrees Celsius' % forecast.get('temp', default)
-        self.windSpeed = 'Wind Speed: %skm/h' % forecast.get('windSpeed', default)
-        self.windDir = 'Wind Direction: %s' % forecast.get('windDirection', default)
-        self.rain = 'Rainfall (Last hour): %smm' % forecast.get('rainfall', default)
-        self.humidity = 'Humidity: %s%%' % forecast.get('humidity', default)
-        self.pressure = 'Pressure: %shPa' % forecast.get('pressure', default)
+
+        self.location = forecast.get('locationDesc')
+        self.validTime = forecast.get('dateTime', default)
+        self.tempDegrees = forecast.get('temp', default)
+        self.windSpeedKm = forecast.get('windSpeed', default)
+        self.windDirection = forecast.get('windDirection', default)
+        self.rainLastHour = forecast.get('rainfall', default)
+        self.humidity = forecast.get('humidity', default)
+        self.pressure = forecast.get('pressure', default)
+
+    #######################################################
+
+    @property
+    def json_object(self):
+        d = {
+            'location': self.location,
+            'validTime':self.validTime,
+            'windData': {
+                'windSpeedKm': self.windSpeedKm,
+                'windDirection': self.windDirection,
+                },
+            'airData': {
+                'rainLastHour': self.rainLastHour,
+                'humidity': self.humidity,
+                'pressure': self.pressure,
+                'tempDegrees': self.tempDegrees
+                }
+        }
+        return d
 
     #######################################################
 
     # Identify correct part of API response based on provided description
     def get_info(self):
         for i in self.response:
-            if i['locationDesc'] == self.description:
+            if i['location'] == self.locationCode:
                 info = i
                 return info
 
@@ -74,6 +95,8 @@ class Mountain(Weather):
 
 # Create instance of Holfuy Weather Station Data, retrieve and save data to variables
 class Holfuy(Weather):
+    #  Access through 'http://holfuy.com/en/modules/mjso.php?k=s409'
+    #  The last 3 digits refer to the site code
     def __init__(self, api_address):
         super(Holfuy, self).__init__(api_address)
 
