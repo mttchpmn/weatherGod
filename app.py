@@ -1,7 +1,7 @@
 
 # TODO - Make JSON objects more verbose?
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, redirect
 
 from lib.rainRadar import RainRadar
 from lib.snowReports import NzskiReport
@@ -31,7 +31,7 @@ def local():
 
 @app.route('/api/v1.0/mountain')
 def mountain():
-    pass
+    return redirect('http://www.metservice.com/publicData/alpineLocForecastSouthern-Lakes_5')
 
 ############################################################################################################
 

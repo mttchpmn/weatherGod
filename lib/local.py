@@ -52,7 +52,7 @@ class Local(Weather):
 
 ############################################################################################################
 
-
+""" DEPRECATED - API redirects directly to the metservice page.
 # Create instance of mountain weather forecast, retrieve and save data to variables
 class Mountain(Weather):
     #  Access via 'http://www.metservice.com/publicData/alpineLocForecastSouthern-Lakes_5'
@@ -67,6 +67,7 @@ class Mountain(Weather):
         self.fzl = 'Freezing Level: %s' % fc['fzl']
         self.wind1 = 'Wind at 1000m: %s' % fc['wind1000']
         self.wind2 = 'Wind at 2000m: %s' % fc['wind2000']
+"""
 
 ############################################################################################################
 
