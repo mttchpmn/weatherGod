@@ -97,27 +97,50 @@ class Mountain(Weather):
 class Holfuy(Weather):
     #  Access through 'http://holfuy.com/en/modules/mjso.php?k=s409'
     #  The last 3 digits refer to the site code
-    def __init__(self, api_address):
+    def __init__(self, api_address, location):
         super(Holfuy, self).__init__(api_address)
+        self.location = location
 
-        self.currentWind = 'Current Wind: %s%s %s gusting %s' % (
-                        self.response['speed'], self.response['speed_unit'],
-                        self.response['dir_str'], self.response['gust'])
+    @property
+    def json_object(self):
+        d = {
+            'location': self.location,
+            'units': {
+                'windUnits': self.response['speed_unit'],
+                'tempUnits': self.response['temp_unit']
+            },
+            'currentWind': {
+                'curWindSpeed': self.response['speed'],
+                'curWindGust': self.response['gust'],
+                'curMaxGust': self.response['max_gust'],
+                'curWindBearing': self.response['dir'],
+                'curWindDirection': self.response['dir_str']
+            },
+            'currentTemp': {
+                'curTemp': self.response['temperature'],
+                'windChill': self.response['wind_chill']
+            },
+            'windTendency': {
+                'speedTendency': self.response['speed_tendency'],
+                'speedRate': self.response['speed_rate'],
+                'bearingTendency': self.response['dir_tendency'],
+                'rateTendency': self.response['dir_rate']
+            },
+            'averageWind': {
+                'avgWindSpeed': self.response['avg_speed'],
+                'avgWindBearing': self.response['avg_dir'],
+                'avgWindDirection': self.response['avg_dir_str']
+            },
+            'dailyWind':{
+                'dayAvgWindSpeed': self.response['daily_avg_speed'],
+                'dayMaxWindSpeed': self.response['daily_max_wind']
+            },
+            'dailyTemp': {
+                'dayMaxTemp': self.response['daily_max_temp'],
+                'dayMinTemp': self.response['daily_min_temp']
+            }
 
-        self.averageWind = 'Average Wind: %s%s %s max gust %s' % (
-                        self.response['avg_speed'], self.response['speed_unit'], self.response['avg_dir_str'],
-                        self.response['max_gust'])
+        }
+        return d
 
-        self.tendency = 'Speed: %s Direction: %s' % (self.response['speed_tendency'], self.response['dir_tendency'])
 
-        self.currentTemp = 'Current Temp: %s%s' % (self.response['temperature'], self.response['temp_unit'])
-
-        self.windChill = 'Wind Chill: %s%s' % (self.response['wind_chill'], self.response['temp_unit'])
-
-        self.dayWind = 'Daily Wind - Avg: %s%s Max: %s%s' % (
-                        self.response['daily_avg_speed'], self.response['speed_unit'], self.response['daily_max_wind'],
-                        self.response['speed_unit'])
-
-        self.dayTemp = 'Daily Temp - Min: %s%s Max: %s%s' % (
-                        self.response['daily_min_temp'], self.response['temp_unit'], self.response['daily_max_temp'],
-                        self.response['temp_unit'])

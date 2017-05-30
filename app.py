@@ -6,7 +6,7 @@ from flask import Flask, jsonify, render_template, redirect
 from lib.rainRadar import RainRadar
 from lib.snowReports import NzskiReport
 from lib.webcam import NzskiWebcam, AirportWebcam, StaticWebcam
-from lib.local import Aerodrome
+from lib.local import Aerodrome, Holfuy
 
 app = Flask(__name__)
 
@@ -28,7 +28,19 @@ def docs():
 @app.route('/api/v1.0/local')
 def local():
     ad = Aerodrome('http://www.metservice.com/publicData/localObsPage', '93831')
-    return jsonify({'aerodrome': ad.json_object})
+    flightpark = Holfuy('http://holfuy.com/en/modules/mjso.php?k=s409', 'Flightpark')
+    gondola = Holfuy('http://holfuy.com/en/modules/mjso.php?k=s170', 'Skyline Gondola')
+    glenorchy = Holfuy('http://holfuy.com/en/modules/mjso.php?k=s278', 'Glenorchy')
+    coronetExpress = Holfuy('http://holfuy.com/en/modules/mjso.php?k=s256', 'Coronet Express')
+
+    ws = [
+        gondola.json_object,
+        coronetExpress.json_object,
+        flightpark.json_object,
+        glenorchy.json_object
+    ]
+
+    return jsonify([{'aerodrome': ad.json_object}, {'weatherStations': ws}])
 
 
 @app.route('/api/v1.0/mountain')
