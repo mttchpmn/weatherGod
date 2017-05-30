@@ -32,8 +32,182 @@
                     <div>
                         <h3>Local</h3>
                         <h5><em>weathergod.herokuapp.com/api/v1.0/local</em></h5>
-                        <p>Not currently functional.  Stay tuned.</p>
+                        <p>Returns a list containing a single JSON object for Aerodrome weather data, and a 'weatherStations' object containing a list of JSON objects for Gondola, Flightpark, Coronet Express, and Glenorchy Weather Stations.</p>
                         <p><em>Example Response:</em></p>
+                        <pre>
+                        
+[
+  {
+    "aerodrome": {
+      "airData": {
+        "humidity": 92, 
+        "pressure": 1013, 
+        "rainLastHour": "0.0", 
+        "tempDegrees": 7
+      }, 
+      "location": "Queenstown Aerodrome AWS", 
+      "validTime": "9:00pm Tuesday 30 May 2017", 
+      "windData": {
+        "windDirection": "NE", 
+        "windSpeedKm": "7"
+      }
+    }
+  }, 
+  {
+    "weatherStations": [
+      {
+        "averageWind": {
+          "avgWindBearing": 339, 
+          "avgWindDirection": "NNW", 
+          "avgWindSpeed": 1.6
+        }, 
+        "currentTemp": {
+          "curTemp": 6.5, 
+          "windChill": 6.5
+        }, 
+        "currentWind": {
+          "curMaxGust": 6, 
+          "curWindBearing": 339, 
+          "curWindDirection": "NNW", 
+          "curWindGust": 1, 
+          "curWindSpeed": 0
+        }, 
+        "dailyTemp": {
+          "dayMaxTemp": 10.2, 
+          "dayMinTemp": 6.0
+        }, 
+        "dailyWind": {
+          "dayAvgWindSpeed": 2.6, 
+          "dayMaxWindSpeed": 13
+        }, 
+        "location": "Skyline Gondola", 
+        "units": {
+          "tempUnits": "C", 
+          "windUnits": "km/h"
+        }, 
+        "windTendency": {
+          "bearingTendency": "stable", 
+          "rateTendency": 0, 
+          "speedRate": 0, 
+          "speedTendency": "calm"
+        }
+      }, 
+      {
+        "averageWind": {
+          "avgWindBearing": 52, 
+          "avgWindDirection": "NE", 
+          "avgWindSpeed": 6
+        }, 
+        "currentTemp": {
+          "curTemp": 3.7, 
+          "windChill": 1.9
+        }, 
+        "currentWind": {
+          "curMaxGust": 11, 
+          "curWindBearing": 52, 
+          "curWindDirection": "NE", 
+          "curWindGust": 11, 
+          "curWindSpeed": 7
+        }, 
+        "dailyTemp": {
+          "dayMaxTemp": 5.2, 
+          "dayMinTemp": 2.9
+        }, 
+        "dailyWind": {
+          "dayAvgWindSpeed": 4.8, 
+          "dayMaxWindSpeed": 29
+        }, 
+        "location": "Coronet Express", 
+        "units": {
+          "tempUnits": "C", 
+          "windUnits": "km/h"
+        }, 
+        "windTendency": {
+          "bearingTendency": "stable", 
+          "rateTendency": 0, 
+          "speedRate": 119, 
+          "speedTendency": "rising"
+        }
+      }, 
+      {
+        "averageWind": {
+          "avgWindBearing": 349, 
+          "avgWindDirection": "N", 
+          "avgWindSpeed": 0
+        }, 
+        "currentTemp": {
+          "curTemp": 6.7, 
+          "windChill": 6.7
+        }, 
+        "currentWind": {
+          "curMaxGust": 0, 
+          "curWindBearing": 349, 
+          "curWindDirection": "N", 
+          "curWindGust": 0, 
+          "curWindSpeed": 0
+        }, 
+        "dailyTemp": {
+          "dayMaxTemp": 13.0, 
+          "dayMinTemp": 2.2
+        }, 
+        "dailyWind": {
+          "dayAvgWindSpeed": 2.2, 
+          "dayMaxWindSpeed": 10
+        }, 
+        "location": "Flightpark", 
+        "units": {
+          "tempUnits": "C", 
+          "windUnits": "km/h"
+        }, 
+        "windTendency": {
+          "bearingTendency": "N", 
+          "rateTendency": 17, 
+          "speedRate": 0, 
+          "speedTendency": "calm"
+        }
+      }, 
+      {
+        "averageWind": {
+          "avgWindBearing": 117, 
+          "avgWindDirection": "ESE", 
+          "avgWindSpeed": 1.7
+        }, 
+        "currentTemp": {
+          "curTemp": 8.0, 
+          "windChill": 8
+        }, 
+        "currentWind": {
+          "curMaxGust": 3.2, 
+          "curWindBearing": 115, 
+          "curWindDirection": "ESE", 
+          "curWindGust": 2.1, 
+          "curWindSpeed": 1.1
+        }, 
+        "dailyTemp": {
+          "dayMaxTemp": 10.7, 
+          "dayMinTemp": 3.2
+        }, 
+        "dailyWind": {
+          "dayAvgWindSpeed": 0.9, 
+          "dayMaxWindSpeed": 5.3
+        }, 
+        "location": "Glenorchy", 
+        "units": {
+          "tempUnits": "C", 
+          "windUnits": "knots"
+        }, 
+        "windTendency": {
+          "bearingTendency": "E", 
+          "rateTendency": -23, 
+          "speedRate": 0, 
+          "speedTendency": "calm"
+        }
+      }
+    ]
+  }
+]
+
+                        </pre>
                         <hr>
 
                         <h3>Mountain</h3>
@@ -247,9 +421,7 @@
   }
 }
 
-                        </pre>
-                        <hr>
-                        
+                        </pre>                        
                     </div>
                 </div>
         </div>
