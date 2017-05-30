@@ -38,8 +38,70 @@
 
                         <h3>Mountain</h3>
                         <h5><em>weathergod.herokuapp.com/api/v1.0/mountain</em></h5>
-                        <p>Not currently functional.  Stay tuned.</p>
+                        <p>Returns list of JSON objects for the next 5 days of the Southern Lakes Mountain Forecasts.  Endpoint is currently a redirect to the Metservice page directly as custom code and routing has not yet been implemented.</p>
                         <p><em>Example Response:</em></p>
+                        <pre>
+                        
+[
+    {
+        "displayDate":"Tuesday 30 May",
+        "forecast":"Cloud developing in the morning, and rain developing about the headwaters with\nscattered falls further east.",
+        "fzl":"2200 metres.",
+        "issued":"10:43pm Monday 29 May 2017",
+        "location":"SOUTHERN LAKES",
+        "longDate":"Today - Tuesday 30 May 2017",
+        "validFrom":"Tue May 30",
+        "validFromDay":"Today",
+        "validFromRaw":1496059200000,
+        "wind1000":"Northerly 50 km\/h, dying out in the afternoon.",
+        "wind2000":"Northerly 60 km\/h, dying out in the evening."
+    },{
+        "displayDate":"Wednesday 31 May",
+        "forecast":"A few showers about the headwaters, with the odd shower spreading further east during the afternoon and evening.",
+        "fzl":"2000 metres.",
+        "issued":"10:13am Monday 29 May 2017",
+        "location":"SOUTHERN LAKES",
+        "longDate":"Tomorrow - Wednesday 31 May 2017",
+        "validFrom":"Wed May 31",
+        "validFromDay":"Tomorrow",
+        "validFromRaw":1496145600000,
+        "wind1000":"Light winds",
+        "wind2000":"Winds mainly light. Northwesterlies 25 km\/h developing late."
+    },{
+        "displayDate":"Thursday 1 June",
+        "forecast":"Mostly cloudy.",
+        "fzl":"2200 metres.",
+        "issued":"10:25am Tuesday 30 May 2017",
+        "location":"SOUTHERN LAKES",
+        "longDate":"Thursday 1 June 2017",
+        "validFrom":"Thu Jun 1",
+        "validFromDay":"Thursday",
+        "validFromRaw":1496232000000,
+        "wind1000":"Light.",
+        "wind2000":"Light."
+    },{
+        "displayDate":"Friday 2 June",
+        "forecast":"Often cloudy. A few spots of rain later. Southeasterly breezes.",
+        "fzl":"",
+        "issued":"10:25am Tuesday 30 May 2017",
+        "location":"SOUTHERN LAKES",
+        "longDate":"Friday 2 June 2017",
+        "validFrom":"Fri Jun 2",
+        "validFromDay":"Friday",
+        "validFromRaw":1496318400000
+    },{
+        "displayDate":"Saturday 3 June",
+        "forecast":"Mostly cloudy. A few spots of rain clearing. Southeasterlies.",
+        "fzl":"",
+        "issued":"10:25am Tuesday 30 May 2017",
+        "location":"SOUTHERN LAKES",
+        "longDate":"Saturday 3 June 2017",
+        "validFrom":"Sat Jun 3",
+        "validFromDay":"Saturday",
+        "validFromRaw":1496404800000
+    }
+]
+                        </pre>
                         <hr>
 
                         <h3>Snow Reports</h3>
