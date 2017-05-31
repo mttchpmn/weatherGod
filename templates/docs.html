@@ -3,14 +3,16 @@
 
 <head>
 	<title>WeatherGod API</title>
-
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"  rel="stylesheet"></script>
-	<link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href="/static/style.css" rel="stylesheet">
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="/static/js/crud.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -19,11 +21,19 @@
         <div class="jumbotron jumbotron-hollow">
             <h1>WeatherGod API</h1>
         </div>
-            <div>
-                <p class="blurb">Created by Matt Chapman</p>
-                <p class="blurb">github.com/mttchpmn</p>
-                <p class="blurb">matt@mttchpmn.com</p>
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <p>
+                        A Python based API designed to aggregate and propagate the individual sources of weather information for Queenstown, New Zealand. Designed for operational usage in the adventure tourism industry.  All information is presented courtesy of its respective source, and retains its original copyright.
+                    </p>
+                    <p><strong>Usage of this API is only with express and explicit permission.</strong></p>
+                    <p>Email matt@peakpixel.nz for data enquiries.</p>
+                    <hr>
+                    <p><span class="glyphicon glyphicon-user"></span>  github.com/mttchpmn </p>
+                    
+                </div>
             </div>
+        
             <div class="panel panel-default">
                 <div class="panel-heading color-fill">
                     <h2>API Endpoints</h2>
@@ -32,24 +42,35 @@
                     <div>
                         <h3>Local</h3>
                         <h5><em>weathergod.herokuapp.com/api/v1.0/local</em></h5>
-                        <p>Returns a list containing a single JSON object for Aerodrome weather data, and a 'weatherStations' object containing a list of JSON objects for Gondola, Flightpark, Coronet Express, and Glenorchy Weather Stations.</p>
-                        <p><em>Example Response:</em></p>
-                        <pre>
+                        <p>Returns a list containing a single JSON object for Aerodrome weather data, and a 'weatherStations' object containing a list of JSON objects for Gondola, Flightpark, Coronet Express, and Glenorchy Weather Stations.</p>                        
                         
-[
+                        <div class="col-xs-12">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading heading-collapse" data-toggle="collapse" href="#localResponse">
+                                            <h4 class="panel-title ">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                                <em>Example Response</em>                                            
+                                            </h4>
+                                    </div>                        
+
+                                    <div id="localResponse" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <pre>[
   {
     "aerodrome": {
       "airData": {
-        "humidity": 92, 
-        "pressure": 1013, 
+        "humidity": 97, 
+        "pressure": 1016, 
         "rainLastHour": "0.0", 
-        "tempDegrees": 7
+        "tempDegrees": 5
       }, 
       "location": "Queenstown Aerodrome AWS", 
-      "validTime": "9:00pm Tuesday 30 May 2017", 
+      "validTime": "9:00am Wednesday 31 May 2017", 
       "windData": {
-        "windDirection": "NE", 
-        "windSpeedKm": "7"
+        "windDirection": "E", 
+        "windSpeedKm": "4"
       }
     }
   }, 
@@ -57,27 +78,27 @@
     "weatherStations": [
       {
         "averageWind": {
-          "avgWindBearing": 339, 
-          "avgWindDirection": "NNW", 
-          "avgWindSpeed": 1.6
+          "avgWindBearing": 40, 
+          "avgWindDirection": "NE", 
+          "avgWindSpeed": 7.1
         }, 
         "currentTemp": {
-          "curTemp": 6.5, 
-          "windChill": 6.5
+          "curTemp": 9.0, 
+          "windChill": 7.8
         }, 
         "currentWind": {
-          "curMaxGust": 6, 
-          "curWindBearing": 339, 
-          "curWindDirection": "NNW", 
-          "curWindGust": 1, 
-          "curWindSpeed": 0
+          "curMaxGust": 11, 
+          "curWindBearing": 37, 
+          "curWindDirection": "NE", 
+          "curWindGust": 11, 
+          "curWindSpeed": 8
         }, 
         "dailyTemp": {
-          "dayMaxTemp": 10.2, 
-          "dayMinTemp": 6.0
+          "dayMaxTemp": 9.2, 
+          "dayMinTemp": 5.0
         }, 
         "dailyWind": {
-          "dayAvgWindSpeed": 2.6, 
+          "dayAvgWindSpeed": 2.9, 
           "dayMaxWindSpeed": 13
         }, 
         "location": "Skyline Gondola", 
@@ -88,34 +109,34 @@
         "windTendency": {
           "bearingTendency": "stable", 
           "rateTendency": 0, 
-          "speedRate": 0, 
-          "speedTendency": "calm"
+          "speedRate": 10, 
+          "speedTendency": "rising"
         }
       }, 
       {
         "averageWind": {
           "avgWindBearing": 52, 
           "avgWindDirection": "NE", 
-          "avgWindSpeed": 6
+          "avgWindSpeed": 6.1
         }, 
         "currentTemp": {
-          "curTemp": 3.7, 
-          "windChill": 1.9
+          "curTemp": 5.9, 
+          "windChill": 5.1
         }, 
         "currentWind": {
           "curMaxGust": 11, 
           "curWindBearing": 52, 
           "curWindDirection": "NE", 
-          "curWindGust": 11, 
-          "curWindSpeed": 7
+          "curWindGust": 8, 
+          "curWindSpeed": 5
         }, 
         "dailyTemp": {
-          "dayMaxTemp": 5.2, 
-          "dayMinTemp": 2.9
+          "dayMaxTemp": 6.4, 
+          "dayMinTemp": 3.2
         }, 
         "dailyWind": {
-          "dayAvgWindSpeed": 4.8, 
-          "dayMaxWindSpeed": 29
+          "dayAvgWindSpeed": 5.2, 
+          "dayMaxWindSpeed": 15
         }, 
         "location": "Coronet Express", 
         "units": {
@@ -125,34 +146,34 @@
         "windTendency": {
           "bearingTendency": "stable", 
           "rateTendency": 0, 
-          "speedRate": 119, 
-          "speedTendency": "rising"
+          "speedRate": -20, 
+          "speedTendency": "falling"
         }
       }, 
       {
         "averageWind": {
-          "avgWindBearing": 349, 
-          "avgWindDirection": "N", 
+          "avgWindBearing": 293, 
+          "avgWindDirection": "WNW", 
           "avgWindSpeed": 0
         }, 
         "currentTemp": {
-          "curTemp": 6.7, 
-          "windChill": 6.7
+          "curTemp": 7.5, 
+          "windChill": 7.5
         }, 
         "currentWind": {
           "curMaxGust": 0, 
-          "curWindBearing": 349, 
-          "curWindDirection": "N", 
+          "curWindBearing": 293, 
+          "curWindDirection": "WNW", 
           "curWindGust": 0, 
           "curWindSpeed": 0
         }, 
         "dailyTemp": {
-          "dayMaxTemp": 13.0, 
-          "dayMinTemp": 2.2
+          "dayMaxTemp": 8.5, 
+          "dayMinTemp": 3.7
         }, 
         "dailyWind": {
-          "dayAvgWindSpeed": 2.2, 
-          "dayMaxWindSpeed": 10
+          "dayAvgWindSpeed": 1.4, 
+          "dayMaxWindSpeed": 13
         }, 
         "location": "Flightpark", 
         "units": {
@@ -160,36 +181,36 @@
           "windUnits": "km/h"
         }, 
         "windTendency": {
-          "bearingTendency": "N", 
-          "rateTendency": 17, 
+          "bearingTendency": "stable", 
+          "rateTendency": 0, 
           "speedRate": 0, 
           "speedTendency": "calm"
         }
       }, 
       {
         "averageWind": {
-          "avgWindBearing": 117, 
-          "avgWindDirection": "ESE", 
-          "avgWindSpeed": 1.7
+          "avgWindBearing": 76, 
+          "avgWindDirection": "ENE", 
+          "avgWindSpeed": 0.5
         }, 
         "currentTemp": {
-          "curTemp": 8.0, 
-          "windChill": 8
+          "curTemp": 10.0, 
+          "windChill": 10
         }, 
         "currentWind": {
-          "curMaxGust": 3.2, 
-          "curWindBearing": 115, 
-          "curWindDirection": "ESE", 
-          "curWindGust": 2.1, 
-          "curWindSpeed": 1.1
+          "curMaxGust": 1.6, 
+          "curWindBearing": 76, 
+          "curWindDirection": "ENE", 
+          "curWindGust": 1.6, 
+          "curWindSpeed": 0
         }, 
         "dailyTemp": {
           "dayMaxTemp": 10.7, 
-          "dayMinTemp": 3.2
+          "dayMinTemp": 6.2
         }, 
         "dailyWind": {
-          "dayAvgWindSpeed": 0.9, 
-          "dayMaxWindSpeed": 5.3
+          "dayAvgWindSpeed": 0.7, 
+          "dayMaxWindSpeed": 4.3
         }, 
         "location": "Glenorchy", 
         "units": {
@@ -197,8 +218,8 @@
           "windUnits": "knots"
         }, 
         "windTendency": {
-          "bearingTendency": "E", 
-          "rateTendency": -23, 
+          "bearingTendency": "stable", 
+          "rateTendency": 0, 
           "speedRate": 0, 
           "speedTendency": "calm"
         }
@@ -206,86 +227,128 @@
     ]
   }
 ]
+</pre>
+                                        </div>
+                                    </div>
 
-                        </pre>
+                                </div>
+                            </div>
+                        </div>
                         <hr>
-
+                    </div>
+                    
+                    <div>
                         <h3>Mountain</h3>
                         <h5><em>weathergod.herokuapp.com/api/v1.0/mountain</em></h5>
                         <p>Returns list of JSON objects for the next 5 days of the Southern Lakes Mountain Forecasts.  Endpoint is currently a redirect to the Metservice page directly as custom code and routing has not yet been implemented.</p>
-                        <p><em>Example Response:</em></p>
-                        <pre>
                         
-[
-    {
-        "displayDate":"Tuesday 30 May",
-        "forecast":"Cloud developing in the morning, and rain developing about the headwaters with\nscattered falls further east.",
-        "fzl":"2200 metres.",
-        "issued":"10:43pm Monday 29 May 2017",
-        "location":"SOUTHERN LAKES",
-        "longDate":"Today - Tuesday 30 May 2017",
-        "validFrom":"Tue May 30",
-        "validFromDay":"Today",
-        "validFromRaw":1496059200000,
-        "wind1000":"Northerly 50 km\/h, dying out in the afternoon.",
-        "wind2000":"Northerly 60 km\/h, dying out in the evening."
-    },{
-        "displayDate":"Wednesday 31 May",
-        "forecast":"A few showers about the headwaters, with the odd shower spreading further east during the afternoon and evening.",
-        "fzl":"2000 metres.",
-        "issued":"10:13am Monday 29 May 2017",
-        "location":"SOUTHERN LAKES",
-        "longDate":"Tomorrow - Wednesday 31 May 2017",
-        "validFrom":"Wed May 31",
-        "validFromDay":"Tomorrow",
-        "validFromRaw":1496145600000,
-        "wind1000":"Light winds",
-        "wind2000":"Winds mainly light. Northwesterlies 25 km\/h developing late."
-    },{
-        "displayDate":"Thursday 1 June",
-        "forecast":"Mostly cloudy.",
-        "fzl":"2200 metres.",
-        "issued":"10:25am Tuesday 30 May 2017",
-        "location":"SOUTHERN LAKES",
-        "longDate":"Thursday 1 June 2017",
-        "validFrom":"Thu Jun 1",
-        "validFromDay":"Thursday",
-        "validFromRaw":1496232000000,
-        "wind1000":"Light.",
-        "wind2000":"Light."
-    },{
-        "displayDate":"Friday 2 June",
-        "forecast":"Often cloudy. A few spots of rain later. Southeasterly breezes.",
-        "fzl":"",
-        "issued":"10:25am Tuesday 30 May 2017",
-        "location":"SOUTHERN LAKES",
-        "longDate":"Friday 2 June 2017",
-        "validFrom":"Fri Jun 2",
-        "validFromDay":"Friday",
-        "validFromRaw":1496318400000
-    },{
-        "displayDate":"Saturday 3 June",
-        "forecast":"Mostly cloudy. A few spots of rain clearing. Southeasterlies.",
-        "fzl":"",
-        "issued":"10:25am Tuesday 30 May 2017",
-        "location":"SOUTHERN LAKES",
-        "longDate":"Saturday 3 June 2017",
-        "validFrom":"Sat Jun 3",
-        "validFromDay":"Saturday",
-        "validFromRaw":1496404800000
-    }
-]
-                        </pre>
-                        <hr>
+                        <div class="col-xs-12">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
 
+                                    <div class="panel-heading heading-collapse" data-toggle="collapse" href="#mountainResponse">
+                                            <h4 class="panel-title ">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                                <em>Example Response</em>                                            
+                                            </h4>
+                                    </div>                        
+
+                                    <div id="mountainResponse" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <pre>[{
+    "displayDate":"Wednesday 31 May",
+    "forecast":"Cloudy periods increasing. A few showers about the headwaters, with the odd one\nspreading east.",
+    "fzl":"About 2200 metres.",
+    "issued":"10:26am Wednesday 31 May 2017",
+    "location":"SOUTHERN LAKES",
+    "longDate":"Today - Wednesday 31 May 2017",
+    "validFrom":"Wed May 31",
+    "validFromDay":"Today",
+    "validFromRaw":1496145600000,
+    "wind1000":"Light.",
+    "wind2000":"Light."
+},
+{
+    "displayDate":"Thursday 1 June",
+    "forecast":"Cloudy, but fine spells in the afternoon.",
+    "fzl":"About 2100 metres.",
+    "issued":"10:26am Wednesday 31 May 2017",
+    "location":"SOUTHERN LAKES",
+    "longDate":"Tomorrow - Thursday 1 June 2017",
+    "validFrom":"Thu Jun 1",
+    "validFromDay":"Tomorrow",
+    "validFromRaw":1496232000000,
+    "wind1000":"Light.",
+    "wind2000":"Light."
+},
+{
+    "displayDate":"Friday 2 June",
+    "forecast":"Often cloudy, a few showers.",
+    "fzl":"Lowering to 1800 metres.",
+    "issued":"10:47am Wednesday 31 May 2017",
+    "location":"SOUTHERN LAKES",
+    "longDate":"Friday 2 June 2017",
+    "validFrom":"Fri Jun 2",
+    "validFromDay":"Friday",
+    "validFromRaw":1496318400000,
+    "wind1000":"Light.",
+    "wind2000":"Light."
+},
+{
+    "displayDate":"Saturday 3 June",
+    "forecast":"Mostly cloudy, isolated showers. Winds mainly light.",
+    "fzl":"",
+    "issued":"10:47am Wednesday 31 May 2017",
+    "location":"SOUTHERN LAKES",
+    "longDate":"Saturday 3 June 2017",
+    "validFrom":"Sat Jun 3",
+    "validFromDay":"Saturday",
+    "validFromRaw":1496404800000
+},
+{
+    "displayDate":"Sunday 4 June",
+    "forecast":"Showers, clearing and fine breaks increasing. Snow flurries briefly possible down to 900 metres early morning. Early southerly change, strong in exposed places, then dying out later.",
+    "fzl":"",
+    "issued":"10:47am Wednesday 31 May 2017",
+    "location":"SOUTHERN LAKES",
+    "longDate":"Sunday 4 June 2017",
+    "validFrom":"Sun Jun 4",
+    "validFromDay":"Sunday",
+    "validFromRaw":1496491200000
+}
+]</pre>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <hr>
+                    </div>
+                    
+                    <div>
                         <h3>Snow Reports</h3>
                         <h5><em>weathergod.herokuapp.com/api/v1.0/snowreport</em></h5>
                         <p>
                             Returns JSON object of key value pairs for Skifield Snow Report Information.  Information is scraped directly from the NZski website.
                         </p>
-                        <p><em>Example Response:</em></p>
-                        <pre>
-{
+                        
+                        <div class="col-xs-12">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading heading-collapse" data-toggle="collapse" href="#snowResponse">
+                                            <h4 class="panel-title ">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                                <em>Example Response</em>                                            
+                                            </h4>
+                                    </div>                        
+
+                                    <div id="snowResponse" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <pre>{
   "snowReport": [
     {
       "detail": {
@@ -297,7 +360,7 @@
       "mountainStatus": "Opening on Sat, Jun 17, 2017", 
       "reportTime": "16:14, 26 May", 
       "stats": {
-        "currentTemp": "5.1\u00b0", 
+        "currentTemp": "6.9\u00b0", 
         "groomedRuns": "0 of 0", 
         "lastSnowDate": "20 May 2017", 
         "lastSnowfall": "5", 
@@ -318,12 +381,12 @@
     {
       "detail": {
         "roadConditions": "The road is clear and open up to car park level. \nPlease drive with caution, maintain two way access at all times and all parking is in Car park 1 just below the base lodge.", 
-        "snowConditions": "Only 12 days before we open for some great times and already mother nature is providing us with a good start to the base. Our snow making team are preparing to hit the button to assist mother nature when temps get cold enough.", 
-        "weatherConditions": "A north westerly air flow is over us presently bringing cloudy skies. Mainly fine weather continues into tomorrow."
+        "snowConditions": "Only 10 days before we open for some great times and already mother nature is providing us with a good start to the base. Our snow making team are preparing to hit the button to assist mother nature when temps get cold enough.", 
+        "weatherConditions": "We presently have clear skies and light cool breeze. Mainly fine weather should continue into tomorrow."
       }, 
       "mountainName": "The Remarkables", 
       "mountainStatus": "Opening on Sat, Jun 10, 2017", 
-      "reportTime": "06:47, 29 May", 
+      "reportTime": "09:13, 31 May", 
       "stats": {
         "currentTemp": "1.9\u00b0", 
         "groomedRuns": "0 of 0", 
@@ -343,85 +406,154 @@
     }
   ]
 }
-                        </pre>
-                        <hr>
 
+                                            </pre>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                    </div>
+                    <div>
 
                         <h3>Rain Radar</h3>
                         <h5><em>weathergod.herokuapp.com/api/v1.0/rainradar</em></h5>
                         <p>Returns a JSON object containing the URLs for the synoptic charts for the next 48 hours.  Charts are sourced from MetVuw.com</p>
-                        <p><em>Example Response:</em></p>
-                        <pre>
-{
+                        
+                        <div class="col-xs-12">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading heading-collapse" data-toggle="collapse" href="#rainResponse">
+                                            <h4 class="panel-title ">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                                <em>Example Response</em>                                            
+                                            </h4>
+                                    </div>                        
+
+                                    <div id="rainResponse" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <pre>{
   "rainRadar": {
-    "06Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-006.gif", 
-    "12Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-012.gif", 
-    "18Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-018.gif", 
-    "24Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-024.gif", 
-    "30Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-030.gif", 
-    "36Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-036.gif", 
-    "42Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-042.gif", 
-    "48Ahead": "http://www.metvuw.com/forecast/2017052912/rain-nzsi-2017052912-048.gif"
+    "06Ahead": "http://www.metvuw.com/forecast/2017053018/rain-nzsi-2017053018-006.gif", 
+    "12Ahead": "http://www.metvuw.com/forecast/2017053018/rain-nzsi-2017053018-012.gif", 
+    "18Ahead": "http://www.metvuw.com/forecast/2017053018/rain-nzsi-2017053018-018.gif", 
+    "24Ahead": "http://www.metvuw.com/forecast/2017053018/rain-nzsi-2017053018-024.gif", 
+    "30Ahead": "http://www.metvuw.com/forecast/2017053018/rain-nzsi-2017053018-030.gif", 
+    "36Ahead": "http://www.metvuw.com/forecast/2017053018/rain-nzsi-2017053018-036.gif", 
+    "42Ahead": "http://www.metvuw.com/forecast/2017053018/rain-nzsi-2017053018-042.gif", 
+    "48Ahead": "http://www.metvuw.com/forecast/2017053018/rain-nzsi-2017053018-048.gif"
   }
 }
-                        </pre>
+</pre>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
                         <hr>
+                    </div>
+                    <div>
 
                         <h3>Webcam</h3>
                         <h5><em>weathergod.herokuapp.com/api/v1.0/webcam</em></h5>
                         <p>Returns a JSON object containing the URLs to the most recent webcam images from around Queenstown. Images are sourced from Coronet Peak,
                         The Remarkables, Queenstown Airport, and assorted other locations / providers.</p>
-                        <p><em>Example Response:</em></p>
-                        <pre>
-                            {
-               "webcams":{
-                  "airport":{
-                     "coronet":"http://www.queenstownairport.co.nz/assets/Webcams/coronet/image17-05-29_10-08-54-83.jpg",
-                     "lake":"http://www.queenstownairport.co.nz/assets/Webcams/lake/image17-05-29_10-10-24-83.jpg",
-                     "remarks":"http://www.queenstownairport.co.nz/assets/Webcams/remarks/image17-05-29_10-14-50-05.jpg",
-                     "stands":"http://www.queenstownairport.co.nz/assets/Webcams/stands/image17-05-29_10-13-21-83.jpg",
-                     "tower":"http://www.queenstownairport.co.nz/assets/Webcams/tower/image17-05-29_10-11-52-83.jpg"
-                  },
-                  "coronetPeak":{
-                     "coronetExpress":"https://www.nzski.com/webcams/CoronetPeak/CoronetExpress/201705291010.jpg",
-                     "meadowBase":"https://www.nzski.com/webcams/CoronetPeak/MeadowsBase/201705291009.jpg",
-                     "topStation":"https://www.nzski.com/webcams/CoronetPeak/SugarsRun/201705291005.jpg"
-                  },
-                  "static":{
-                     "cecilNorth":"http://www.jablotool.com/webcamera/H1H1ISJWPU/1",
-                     "cecilWest":"http://www.jablotool.com/webcamera/QXG2A2FXGT/1/",
-                     "earnslaw":"http://snapithd.com/static/earnslaw.jpg",
-                     "fnTrafficBp":"http://www.trafficnz.info/camera/627.jpg",
-                     "fnTrafficBridge":"http://www.trafficnz.info/camera/623.jpg",
-                     "glenorchy":"http://www.snowgrass.co.nz/cust/glenorchy_air/images/webcam.jpg",
-                     "qnTrafficNorth":"http://www.trafficnz.info/camera/622.jpg",
-                     "qnTrafficSouth":"http://www.trafficnz.info/camera/621.jpg",
-                     "steamerWharf":"http://www.southerndiscoveries.co.nz/webcam-images/QTN1/webcam3.jpg?1495416172"
-                  },
-                  "theRemarkables":{
-                     "baseLearners":"https://www.nzski.com/webcams/TheRemarkables/Baselearners/201705291002.jpg",
-                     "lakeAlta":"https://www.nzski.com/webcams/TheRemarkables/IcebarJunction/201705291002.jpg",
-                     "sugarBowl":"https://www.nzski.com/webcams/TheRemarkables/Sugarbowl/201705291002.jpg"
-                  }
-               }
-            }
-                        </pre>
+                        
+                        <div class="col-xs-12">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading heading-collapse" data-toggle="collapse" href="#camResponse">
+                                            <h4 class="panel-title ">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                                <em>Example Response</em>                                            
+                                            </h4>
+                                    </div>                        
+
+                                    <div id="camResponse" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <pre>{
+  "webcams": {
+    "airport": {
+      "coronet": "http://www.queenstownairport.co.nz/assets/Webcams/coronet/image17-05-31_12-04-30-83.jpg", 
+      "lake": "http://www.queenstownairport.co.nz/assets/Webcams/lake/image17-05-31_11-58-35-83.jpg", 
+      "remarks": "http://www.queenstownairport.co.nz/assets/Webcams/remarks/image17-05-31_12-03-01-03.jpg", 
+      "stands": "http://www.queenstownairport.co.nz/assets/Webcams/stands/image17-05-31_12-01-32-83.jpg", 
+      "tower": "http://www.queenstownairport.co.nz/assets/Webcams/tower/image17-05-31_12-00-03-83.jpg"
+    }, 
+    "coronetPeak": {
+      "coronetExpress": "https://www.nzski.com/webcams/CoronetPeak/CoronetExpress/201705311156.jpg", 
+      "meadowBase": "https://www.nzski.com/webcams/CoronetPeak/MeadowsBase/201705311155.jpg", 
+      "topStation": "https://www.nzski.com/webcams/CoronetPeak/SugarsRun/201705311151.jpg"
+    }, 
+    "static": {
+      "cecilNorth": "http://www.jablotool.com/webcamera/H1H1ISJWPU/1", 
+      "cecilWest": "http://www.jablotool.com/webcamera/QXG2A2FXGT/1/", 
+      "earnslaw": "http://snapithd.com/static/earnslaw.jpg", 
+      "fnTrafficBp": "http://www.trafficnz.info/camera/627.jpg", 
+      "fnTrafficBridge": "http://www.trafficnz.info/camera/623.jpg", 
+      "glenorchy": "http://www.snowgrass.co.nz/cust/glenorchy_air/images/webcam.jpg", 
+      "qnTrafficNorth": "http://www.trafficnz.info/camera/622.jpg", 
+      "qnTrafficSouth": "http://www.trafficnz.info/camera/621.jpg", 
+      "steamerWharf": "http://www.southerndiscoveries.co.nz/webcam-images/QTN1/webcam3.jpg?1495416172"
+    }, 
+    "theRemarkables": {
+      "baseLearners": "https://www.nzski.com/webcams/TheRemarkables/Baselearners/201705311158.jpg", 
+      "lakeAlta": "https://www.nzski.com/webcams/TheRemarkables/IcebarJunction/201705311158.jpg", 
+      "sugarBowl": "https://www.nzski.com/webcams/TheRemarkables/Sugarbowl/201705311157.jpg"
+    }
+  }
+}
+
+                                            </pre>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
                         <hr>
+                    </div>
+                    <div>
 
                         <h3>River Flow</h3>
                         <h5><em>weathergod.herokuapp.com/api/v1.0/riverflow</em></h5>
                         <p>Returns a JSON object containing URLs for river flow gifs. Sourced from the Otago Regional Council Website.</p>
-                        <p><em>Example Response:</em></p>
-                        <pre>
-{
+                        
+                        <div class="col-xs-12">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading heading-collapse" data-toggle="collapse" href="#flowResponse">
+                                            <h4 class="panel-title ">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                                <em>Example Response</em>                                            
+                                            </h4>
+                                    </div>                        
+
+                                    <div id="flowResponse" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <pre>{
   "riverFlow": {
     "dart": "http://water.orc.govt.nz/Drop/Graphs/HillocksFlow7.gif", 
     "kawarau": "http://water.orc.govt.nz/Drop/Graphs/Chards7.gif", 
     "shotover": "http://water.orc.govt.nz/Drop/Graphs/PeatsFlow7.gif"
   }
-}
+}                                            </pre>
+                                        </div>
+                                    </div>
 
-                        </pre>                        
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
         </div>
@@ -431,3 +563,4 @@
 <footer class="footer">
 	<p class="text-center">&copy; Matt Chapman</p>
 </footer>
+</html>
