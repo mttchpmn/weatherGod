@@ -7,7 +7,7 @@ h2{
 }
 h3{
     font-family: 'Roboto Slab';
-    color: #42A5F5;
+    color: #3F51B5;
     font-size: 30px;
 }
 p{
@@ -19,16 +19,16 @@ p{
     font-size: 50px !important;
 }
 .jumbotron-hollow{
-    background-color: transparent !important;
+    background-color: white!important;
     border: 10px !important;
     border-style: solid !important;
-    color: #42A5F5;
-    border-color: #42A5F5 !important;
+    color: #3F51B5;
+    border-color: #3F51B5 !important;
     font-family: 'Roboto Slab';
     text-align: center;
 }
 .color-fill{
-    background-color: #42A5F5 !important;
+    background-color: #3F51B5 !important;
     color: white !important;
     font-family: 'Roboto Slab';
     text-align: center;
@@ -41,4 +41,7 @@ p{
 }
 .heading-collapse{
     cursor: pointer;
+}
+.logo{
+    width: 200px
 }
