@@ -2,6 +2,8 @@
 # TODO - Make JSON objects more verbose?
 
 from flask import Flask, jsonify, render_template, redirect
+from requests import get as GET
+from pprint import pprint
 
 from lib.rainRadar import RainRadar
 from lib.snowReports import NzskiReport
@@ -105,6 +107,24 @@ def river():
         'kawarau': 'http://water.orc.govt.nz/Drop/Graphs/Chards7.gif'
     }
     return jsonify({'riverFlow': d})
+
+############################################################################################################
+
+@app.route('/view/webcam')
+def test():
+    r = GET('https://weathergod.herokuapp.com/api/v1.0/webcam').json()
+
+    airport = r['webcams']['airport']
+    coronet = r['webcams']['coronetPeak']
+    remarks = r['webcams']['theRemarkables']
+    static = r ['webcams']['static']
+
+    return render_template('webcam.html', 
+                            airport=airport, 
+                            coronet=coronet, 
+                            remarks=remarks, 
+                            static=static
+                            )
 
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>WeatherGod - Webcams</title>
+	    
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+	    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	    <link href="/static/style.css" rel="stylesheet">
+	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body>
+		<div class="container-fluid text-center">
+            <div class="jumbotron jumbotron-hollow">
+                <h1>Queenstown Webcams</h1>
+			</div>
+
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-heading color-fill">
+						<h2>Ski Fields</h2>
+					</div>
+					<div class="panel-body">					
+						<div class="col-lg-4">
+							<img src="{{ coronet.topStation }}" width="600px">
+							<h4>Coronet Top Station</h4>
+						</div> 
+
+						<div class="col-lg-4">
+							<img src="{{ coronet.meadowBase }}" width="600px">
+							<h4>Coronet Meadows</h4>
+						</div>
+
+						<div class="col-lg-4">
+							<img src="{{ coronet.coronetExpress }}" width="600px">
+							<h4>Coronet Express</h4>
+						</div>
+						<hr>
+						<div class="col-lg-4">
+							<img src="{{ remarks.baseLearners }}" width="600px">
+							<h4>Remarks Base</h4>
+						</div> 
+
+						<div class="col-lg-4">
+							<img src="{{ remarks.sugarBowl }}" width="600px">
+							<h4>Remarks Sugar Bowl</h4>
+						</div>
+
+						<div class="col-lg-4">
+							<img src="{{ remarks.lakeAlta }}" width="600px">
+							<h4>Remarks Lake Alta</h4>
+						</div>	
+					</div>
+				</div>
+					
+			</div>
+
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-heading color-fill">
+						<h2>Queenstown Airport</h2>
+					</div>
+					<div class="panel-body">					
+						<div class="col-lg-4">
+							<img src="{{ airport.coronet }}" width="600px">
+							<h4>Coronet Peak</h4>
+						</div> 
+
+						<div class="col-lg-4">
+							<img src="{{ airport.lake }}" width="600px">
+							<h4>Lake Wakatipu</h4>
+						</div>
+
+						<div class="col-lg-4">
+							<img src="{{ airport.remarks }}" width="600px">
+							<h4>The Remarkables</h4>
+						</div>
+						<div class="col-lg-4">
+							<img src="{{ airport.stands }}" width="600px">
+							<h4>Crown Range</h4>
+						</div> 
+
+						<div class="col-lg-4">
+							<img src="{{ airport.tower }}" width="600px">
+							<h4>Tower</h4>
+						</div>
+						
+					</div>
+				</div>				
+			</div>
+
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-heading color-fill">
+						<h2>Other Locations</h2>
+					</div>
+					<div class="panel-body">
+						<div class="col-lg-4">
+							<img src="{{ static.cecilNorth }}" width="600px">
+							<h4>Cecil Peak North</h4>
+						</div>
+
+						<div class="col-lg-4">
+							<img src="{{ static.cecilWest }}" width="600px">
+							<h4>Cecil Peak West</h4>
+						</div>
+						<div class="col-lg-4">
+							<img src="{{ static.earnslaw }}" width="600px">
+							<h4>TSS Earnslaw</h4>
+						</div> 
+
+						<div class="col-lg-4">
+							<img src="{{ static.steamerWharf }}" width="600px">
+							<h4>Steamer Wharf</h4>
+						</div>
+
+						<div class="col-lg-4">
+							<img src="{{ static.glenorchy }}" width="600px">
+							<h4>Glenorchy</h4>
+						</div>
+						
+					</div>
+				</div>				
+			</div>
+
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-heading color-fill">
+						<h2>Traffic</h2>
+					</div>
+					<div class="panel-body">					
+						<div class="col-lg-4">
+							<img src="{{ static.qnTrafficNorth }}" width="600px">
+							<h4>Queenstown North</h4>
+						</div> 
+
+						<div class="col-lg-4">
+							<img src="{{ static.qnTrafficSouth }}" width="600px">
+							<h4>Queenstown South</h4>
+						</div>
+
+						<div class="col-lg-4">
+							<img src="{{ static.fnTrafficBridge }}" width="600px">
+							<h4>Kawarau Bridge</h4>
+						</div>
+						<div class="col-lg-4">
+							<img src="{{ static.fnTrafficBp }}" width="600px">
+							<h4>Frankton Roundabout</h4>
+						</div>
+
+					</div>
+				</div>				
+			</div>
+
+			
+		</div>
+	</body>
+    <footer>
+        <div class="text-center">
+            <img src="/static/logo-small.png" class="logo">
+        </div>
+    </footer>
+</html>
