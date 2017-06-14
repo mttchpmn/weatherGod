@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>WeatherGod - Webcams</title>
+	    
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+	    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	    <link href="/static/style.css" rel="stylesheet">
+	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body>
+		<div class="container text-center">
+            <div class="jumbotron jumbotron-hollow">
+                <h1>Queenstown Weather</h1>                
+			</div>
+        </div>
+        
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>Queenstown Aerodrome</h2>
+                    <p>{{aerodrome.airData.tempDegrees}}</p>
+                </div>
+                
+                <div class="panel-body">
+                    <h5><span class="glyphicon glyphicon-time"></span> VALID Time blah blah</h5>
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>Air Data</h4>
+                            </div>                            
+                            <ul class="list-group">
+                                <li class="list-group-item">Temperature<span class="pull-right"><p>{{aerodrome.airData.tempDegrees}}</p></span></li>
+                                <li class="list-group-item">Air Pressure<span class="pull-right">VALUE</span></li>
+                                <li class="list-group-item">Humidity<span class="pull-right">VALUE</span></li>
+                                <li class="list-group-item">Precipitaion (Last Hour)<span class="pull-right">VALUE</span></li>
+                            </ul>                        
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>Wind Data</h4>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Wind Speed<span class="pull-right">VALUE</span></li>
+                                <li class="list-group-item">Wind Direction<span class="pull-right">VALUE</span></li>
+                            </ul>                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>Skyline Gondola</h2>
+                </div>
+                
+                <div class="panel-body">
+                    <!--<h5><span class="glyphicon glyphicon-time"></span> VALID Time blah blah</h5>-->
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>Air Data</h4>
+                            </div>                            
+                            <ul class="list-group">
+                                <li class="list-group-item">Temperature</li>
+                                <li class="list-group-item">Air Pressure</li>
+                                <li class="list-group-item">Humidity</li>
+                                <li class="list-group-item">Precipitaion (Last Hour)</li>
+                            </ul>                        
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>Wind Data</h4>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Wind Speed</li>
+                                <li class="list-group-item">Wind Direction</li>
+                            </ul>                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>

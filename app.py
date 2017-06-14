@@ -111,7 +111,7 @@ def river():
 ############################################################################################################
 
 @app.route('/view/webcam')
-def test():
+def view_webcam():
     r = GET('https://weathergod.herokuapp.com/api/v1.0/webcam').json()
 
     airport = r['webcams']['airport']
@@ -125,6 +125,21 @@ def test():
                             remarks=remarks, 
                             static=static
                             )
+
+############################################################################################################
+
+@app.route('/view/local')
+def view_local():
+    r = GET('https://weathergod.herokuapp.com/api/v1.0/local').json()
+
+    pprint(r)
+    aerodrome = r[0]['aerodrome']
+    
+
+    return render_template('local.html', 
+                            aerodrome=aerodrome
+                            )
+
 
 if __name__ == '__main__':
     app.run()
