@@ -33,6 +33,12 @@ p{
     font-family: 'Roboto Slab';
     text-align: center;
 }
+.yellow-fill{
+    background-color: #FFEE58 !important;
+    color: white !important;
+    font-family: 'Roboto Slab';
+    text-align: center;
+}
 .blurb{
     text-align: center;
     font-family: 'Roboto';

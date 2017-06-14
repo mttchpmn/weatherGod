@@ -25,35 +25,34 @@
         
         <div class="container">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading color-fill">
                     <h2>Queenstown Aerodrome</h2>
-                    <p>{{aerodrome.airData.tempDegrees}}</p>
                 </div>
                 
                 <div class="panel-body">
-                    <h5><span class="glyphicon glyphicon-time"></span> VALID Time blah blah</h5>
-                    <div class="col-lg-6">
+                    <h5><span class="glyphicon glyphicon-time"></span> VALID {{ aerodrome.validTime }}</h5>
+                    <div class="col-sm-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4>Air Data</h4>
                             </div>                            
                             <ul class="list-group">
-                                <li class="list-group-item">Temperature<span class="pull-right"><p>{{aerodrome.airData.tempDegrees}}</p></span></li>
-                                <li class="list-group-item">Air Pressure<span class="pull-right">VALUE</span></li>
-                                <li class="list-group-item">Humidity<span class="pull-right">VALUE</span></li>
-                                <li class="list-group-item">Precipitaion (Last Hour)<span class="pull-right">VALUE</span></li>
+                                <li class="list-group-item">Temperature<span class="pull-right"><p>{{aerodrome.airData.tempDegrees}} Deg Celsius</p></span></li>
+                                <li class="list-group-item">Air Pressure<span class="pull-right">{{ aerodrome.airData.pressure }} hPa</span></li>
+                                <li class="list-group-item">Humidity<span class="pull-right">{{ aerodrome.airData.humidity}}%</span></li>
+                                <li class="list-group-item">Precipitaion (Last Hour)<span class="pull-right">{{ aerodrome.airData.rainLastHour }}mm</span></li>
                             </ul>                        
                         </div>
                     </div>
                     
-                    <div class="col-lg-6">
+                    <div class="col-sm-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4>Wind Data</h4>
                             </div>
                             <ul class="list-group">
-                                <li class="list-group-item">Wind Speed<span class="pull-right">VALUE</span></li>
-                                <li class="list-group-item">Wind Direction<span class="pull-right">VALUE</span></li>
+                                <li class="list-group-item">Wind Speed<span class="pull-right">{{ aerodrome.windData.windSpeedKm }} Km/h</span></li>
+                                <li class="list-group-item">Wind Direction<span class="pull-right">{{ aerodrome.windData.windDirection}}</span></li>
                             </ul>                            
                         </div>
                     </div>
@@ -64,7 +63,7 @@
         
         <div class="container">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading color-fill">
                     <h2>Skyline Gondola</h2>
                 </div>
                 
