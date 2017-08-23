@@ -38,14 +38,14 @@ class RainRadar(IceScraper):
     def json_object(self):
         """Returns information in a dictionary, which can easily be serialised using 'jsonify()'."""
         d = {
-            '06Ahead': self.img06,
-            '12Ahead': self.img12,
-            '18Ahead': self.img18,
-            '24Ahead': self.img24,
-            '30Ahead': self.img30,
-            '36Ahead': self.img36,
-            '42Ahead': self.img42,
-            '48Ahead': self.img48,
+            'ahead06': self.img06,
+            'ahead12': self.img12,
+            'ahead18': self.img18,
+            'ahead24': self.img24,
+            'ahead30': self.img30,
+            'ahead36': self.img36,
+            'ahead42': self.img42,
+            'ahead48': self.img48,
                 }
         return d
 
