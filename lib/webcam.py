@@ -1,3 +1,4 @@
+import requests
 from iceScraper import IceScraper
 
 ############################################################################################################
@@ -34,6 +35,26 @@ class NzskiWebcam(IceScraper):
                 'lakeAlta': self.lake_alta,
                 'sugarBowl': self.sugar_bowl
             }
+        return d
+
+############################################################################################################
+
+
+class CrownRangeWebcam(object):
+    def __init__(self):
+        r = requests.get("http://www.metservice.com/publicData/trafficWebcam_Crown_Range")
+        r = r.json()
+        mostRecent = r[0]
+
+        self.url = "http://www.metservice.com{}".format(mostRecent["url"])
+        self.validTime = mostRecent["shortDateTime"]
+
+    @property
+    def json_object(self):
+        d = {
+            "url": self.url,
+            "validTime": self.validTime
+        }
         return d
 
 ############################################################################################################
@@ -132,7 +153,11 @@ def main():
     print ap.lake
     print ap.remarks
 
+def test():
+    test = CrownRangeWebcam()
+    print test.url
+    print test.validTime
 ############################################################################################################
 
 if __name__ == '__main__':
-    main()
+    test()

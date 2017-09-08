@@ -7,7 +7,7 @@ from pprint import pprint
 
 from lib.rainRadar import RainRadar
 from lib.snowReports import NzskiReport
-from lib.webcam import NzskiWebcam, AirportWebcam, StaticWebcam
+from lib.webcam import NzskiWebcam, AirportWebcam, CrownRangeWebcam, StaticWebcam
 from lib.local import Aerodrome, Holfuy
 
 app = Flask(__name__)
@@ -83,7 +83,7 @@ def webcams():
                           'The Remarkables')
     airport = AirportWebcam('http://www.queenstownairport.co.nz/travelling/flight-info/webcam')
 
-    print airport.json_object
+    crownRange = CrownRangeWebcam()
 
     static = StaticWebcam()
 
@@ -91,6 +91,7 @@ def webcams():
         'coronetPeak': coronet.json_object,
         'theRemarkables': remarks.json_object,
         'airport': airport.json_object,
+        'crownRange': crownRange.json_object,
         'static': static.json_object
     }
 
