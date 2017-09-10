@@ -1,7 +1,10 @@
 
 # TODO - Make JSON objects more verbose?
 
+from apscheduler.schedulers.blocking import  BlockingScheduler
 from flask import Flask, jsonify, render_template, redirect
+from flask_heroku import Heroku
+from flask_sqlalchemy import SQLAlchemy
 from requests import get as GET
 from pprint import pprint
 
@@ -11,6 +14,8 @@ from lib.webcam import NzskiWebcam, AirportWebcam, CrownRangeWebcam, StaticWebca
 from lib.local import Aerodrome, Holfuy
 
 app = Flask(__name__)
+heroku = Heroku(app)
+db = SQLAlchemy(app)
 
 ############################################################################################################
 
